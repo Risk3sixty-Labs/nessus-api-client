@@ -1,0 +1,9 @@
+# ignore
+*.log
+*.rdb
+*.DS_Store
+/logs
+/node_modules
+/libs
+/tests
+/index*.js

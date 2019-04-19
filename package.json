@@ -1,0 +1,34 @@
+{
+  "name": "@risk3sixty/nessus-api-client",
+  "version": "0.0.1",
+  "author": "Lance Whatley <lance.whatley@risk3sixty.com>",
+  "description": "Client to query the Tenable Nessus API.",
+  "main": "index.js",
+  "engines": {
+    "node": "10.15.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Risk3sixty-Labs/NessusApiClient"
+  },
+  "scripts": {
+    "build": "gulp build",
+    "postinstall": "npm run build",
+    "test": "env NODE_TLS_REJECT_UNAUTHORIZED=0 mocha --exit --require @babel/register --recursive './src/**/*.spec.js'"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0"
+  },
+  "dependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/register": "^7.4.0",
+    "core-js": "^3.0.1",
+    "gulp": "^4.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-plumber": "^1.2.1",
+    "request": "^2.87.0",
+    "request-promise-native": "^1.0.5"
+  },
+  "license": "UNLICENSED"
+}
