@@ -1,7 +1,9 @@
 import path from 'path'
-import request from 'request-promise-native'
+import request from 'request'
+import requestPromise from 'request-promise-native'
 
-const packageVersion = require(path.join('..', '..', 'package.json')).version
+// const packageVersion = require(path.join('..', '..', 'package.json')).version
+const packageVersion = '0.0.1'
 
 export default function Http(config) {
   return {
@@ -38,20 +40,31 @@ export default function Http(config) {
     },
 
     async doRequest(verb, path, params, data=true) {
+      const opts = this.getRequestOptions(verb, path, params, data)
+      const response = await requestPromise({ ...opts, resolveWithFullResponse: true })
+
+      if (response.error)
+        throw new Error(response.error)
+
+      return response.body
+    },
+
+    streamRequest(stream, verb, path, params, data=true) {
+      const opts = this.getRequestOptions(verb, path, params, data)
+      return request(opts).pipe(stream)
+    },
+
+    getRequestOptions(verb, path, params, data=true) {
       let opts = this.configure()
 
       opts.method = verb
       opts.url    = config.url + path
       opts.json   = data || true
 
-      if(params.length > 0)
+      if (params && params.length > 0)
         opts.url += `?${params.join("&")}`
 
-      const response = await request(opts)
-      if (response.error)
-        throw new Error(response.error)
-
-      return response
+      return opts
     }
   }
 }

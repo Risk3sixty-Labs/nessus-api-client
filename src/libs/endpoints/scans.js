@@ -4,10 +4,10 @@ export default function Scans(config) {
   const http = Http(config)
 
   return {
-    async list(fid) {
+    async list(folderId) {
       let attrs = []
-      if (fid)
-        attrs.push(`folder_id=${fid}`)
+      if (folderId)
+        attrs.push(`folder_id=${folderId}`)
 
       return await http.get("/scans", attrs)
     },
@@ -16,22 +16,26 @@ export default function Scans(config) {
       return await http.post("/scans", [], obj)
     },
 
-    async details(sid) {
-      return await http.get(`/scans/${sid}`, [])
+    async details(scanId) {
+      return await http.get(`/scans/${scanId}`, [])
     },
 
-    async pluginOutput(sid, hid, pid) {
-      return await http.get([ "/scans", sid, "hosts", hid, "plugins", pid ].join("/"), [])
+    async exportRequest(scanId, options={}) {
+      return await http.post(`/scans/${scanId}/export`, [], { format: 'nessus', ...options })
     },
 
-    async move(sid, fName) {
+    async pluginOutput(scanId, hid, pid) {
+      return await http.get([ "/scans", scanId, "hosts", hid, "plugins", pid ].join("/"), [])
+    },
+
+    async move(scanId, fName) {
       const data = await http.get("/folders", [])
       const folder_id = data.folders.filter(f => f.name === fName )[0].id
-      return await http.put(`/scans/${sid}/folder`, [], { folder_id })
+      return await http.put(`/scans/${scanId}/folder`, [], { folder_id })
     },
 
-    async configure(sid, obj) {
-      return await http.put(`/scans/${sid}`, [], obj)
+    async configure(scanId, obj) {
+      return await http.put(`/scans/${scanId}`, [], obj)
     }
   }
 }

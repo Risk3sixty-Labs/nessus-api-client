@@ -2,7 +2,7 @@
   "name": "@risk3sixty/nessus-api-client",
   "version": "0.0.1",
   "author": "Lance Whatley <lance.whatley@risk3sixty.com>",
-  "description": "Client to query the Tenable Nessus API.",
+  "description": "API client for the Tenable Nessus API.",
   "main": "index.js",
   "engines": {
     "node": "10.15.3"
@@ -30,5 +30,5 @@
     "request": "^2.87.0",
     "request-promise-native": "^1.0.5"
   },
-  "license": "UNLICENSED"
+  "license": "MIT"
 }

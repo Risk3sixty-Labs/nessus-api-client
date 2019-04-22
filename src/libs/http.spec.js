@@ -7,7 +7,17 @@ describe("HTTP", function() {
     it("should load all the verbs/methods", function() {
       assert.deepEqual(
         Object.keys(Http(testOptions)).sort(),
-        ['config', 'configure', 'get', 'put', 'post', 'del', 'doRequest'].sort()
+        [
+          'config',
+          'configure',
+          'get',
+          'getRequestOptions',
+          'put',
+          'post',
+          'del',
+          'doRequest',
+          'streamRequest'
+        ].sort()
       )
     })
   })

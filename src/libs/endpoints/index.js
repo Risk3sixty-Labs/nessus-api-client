@@ -1,5 +1,9 @@
+import editor from './editor'
 import scans from './scans'
+import tokens from './tokens'
 
 export default {
-  scans
+  editor,
+  scans,
+  tokens
 }
