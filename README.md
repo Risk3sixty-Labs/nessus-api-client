@@ -10,6 +10,10 @@ API client for the Tenable Nessus API.
 $ npm install @risk3sixty/nessus-api-client
 ```
 
+### Usage
+
+TODO
+
 ### Development
 
 #### Tests

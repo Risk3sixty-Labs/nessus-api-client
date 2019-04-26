@@ -3,12 +3,15 @@ import util from 'util'
 import Http from './libs/http'
 import Endpoints from './libs/endpoints'
 
+// `options` can be any requestjs supported options:
+// https://www.npmjs.com/package/request#requestoptions-callback
 export default function NessusApiClient({
   url,
   accessKey,
-  accessSecret
+  accessSecret,
+  ...options
 }) {
-  const userConfig = { url, accessKey, accessSecret }
+  const userConfig = { url, accessKey, accessSecret, ...options }
 
   return {
     http: Http(userConfig),
