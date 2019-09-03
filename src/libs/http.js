@@ -27,8 +27,8 @@ export default function Http(config) {
       return await this.doRequest('GET', path, params)
     },
 
-    async getStream(stream, path, params) {
-      return await this.streamRequest(stream, 'GET', path, params)
+    getStream(stream, path, params) {
+      return this.streamRequest(stream, 'GET', path, params)
     },
 
     async post(path, params, data) {
