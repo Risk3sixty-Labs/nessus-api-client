@@ -27,8 +27,8 @@ export default function Http(config) {
       return await this.doRequest('GET', path, params)
     },
 
-    getStream(stream, path, params) {
-      return this.streamRequest(stream, 'GET', path, params)
+    getStream(path, params) {
+      return this.streamRequest('GET', path, params)
     },
 
     async post(path, params, data) {
@@ -53,9 +53,9 @@ export default function Http(config) {
       return response.body
     },
 
-    streamRequest(stream, verb, path, params, data=true) {
+    streamRequest(verb, path, params, data=true) {
       const opts = this.getRequestOptions(verb, path, params, data)
-      return request(opts).pipe(stream)
+      return request(opts)
     },
 
     getRequestOptions(verb, path, params, data=true) {
