@@ -1,6 +1,6 @@
 {
   "name": "@risk3sixty/nessus-api-client",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "author": "Lance Whatley <lance.whatley@risk3sixty.com>",
   "description": "API client for the Tenable Nessus API.",
   "main": "index.js",
