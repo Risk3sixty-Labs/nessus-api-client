@@ -11,6 +11,7 @@ describe("HTTP", function() {
           'config',
           'configure',
           'get',
+          'getStream',
           'getRequestOptions',
           'put',
           'post',

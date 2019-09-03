@@ -10,6 +10,10 @@ export default function Tokens(config) {
 
     async download(token) {
       return await http.get(`/tokens/${token}/download`)
+    },
+
+    async downloadStream(stream, token) {
+      return await http.getStream(stream, `/tokens/${token}/download`)
     }
   }
 }
