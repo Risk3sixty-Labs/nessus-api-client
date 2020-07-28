@@ -1,5 +1,6 @@
 export const testOptions = {
   url: 'https://localhost:8834',
-  accessKey: '1cf799707d653062864dd5977e1eb6ca24ab369b164f18fabf8f3b3e971711f0',
-  accessSecret: 'a28dd2e6aef26928e41f21474f03aabbfe7518d3a4c107f5e99db1293478a697'
+  accessKey: 'f12bfc21fc4e639e162ea325889eb7cbeff1166f4b95dc86288abe236d8e8c19',
+  accessSecret:
+    '6a1d18ccc6c57c02ec06fd7b3fd6ba6d2f2490f6ef892bb546afc7679ff9264f',
 }
